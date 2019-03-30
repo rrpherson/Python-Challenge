@@ -1,8 +1,8 @@
 import os
 import csv
 
-PollCSV = os.path.join("PyPoll" , "election_data.csv")
-
+PollCSV = os.path.join("PyPoll", "election_data.csv")
+Results_File = os.path.join("PyPoll", "Results.txt")
 
 total_votes = 0
 candidates = {}
@@ -40,3 +40,15 @@ for key, value in candidates.items():
 print("-------------------------------------")
 print("Winner: " + winner)
 print("-------------------------------------")
+
+
+with open(Results_File, "w") as text_file:
+    print("Election Results", file=text_file)
+    print("-------------------------------------", file=text_file)
+    print("Total Votes: " + str(total_votes), file=text_file)
+    print("-------------------------------------", file=text_file)
+    for key, value in candidates.items():
+        print(key + ": " + str(candidates_percent[key]) + "% (" + str(value) + ")", file=text_file)
+    print("-------------------------------------", file=text_file)
+    print("Winner: " + winner, file=text_file)
+    print("-------------------------------------", file=text_file)

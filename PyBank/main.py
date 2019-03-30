@@ -9,7 +9,7 @@ Dates = []
 Profits = []
 
 BudgetCSV = os.path.join("PyBank", "budget_data.csv")
-
+Results_File = os.path.join("PyBank", "Results.txt")
 
 with open(BudgetCSV, 'r') as csvfile:
 
@@ -41,10 +41,24 @@ with open(BudgetCSV, 'r') as csvfile:
 
     ChangeAve = sum(Profits)/len(Profits)
     
-print("Financial Analysis")
-print("---------------------")
-print(f"Total Months: {str(TotalMonths)}")
-print(f"Total: ${str(NetTotal)}")
-print(f"Average Change: ${str(round(ChangeAve,2))}")
-print(f"Greatest Increase in Profits: {IncreaseDates} (${str(GreatestIncrease)})")
-print(f"Greatest Decrease in Profits: {DecreaseDates} (${str(GreatestDecrease)})")
+# print("Financial Analysis")
+# print("---------------------")
+# print(f"Total Months: {str(TotalMonths)}")
+# print(f"Total: ${str(NetTotal)}")
+# print(f"Average Change: ${str(round(ChangeAve,2))}")
+# print(f"Greatest Increase in Profits: {IncreaseDates} (${str(GreatestIncrease)})")
+# print(f"Greatest Decrease in Profits: {DecreaseDates} (${str(GreatestDecrease)})")
+
+text = (f"""
+Financial Analysis
+---------------------
+Total Months: {str(TotalMonths)}
+Total: ${str(NetTotal)}
+Average Change: ${str(round(ChangeAve,2))}
+Greatest Increase in Profits: {IncreaseDates} (${str(GreatestIncrease)})
+Greatest Decrease in Profits: {DecreaseDates} (${str(GreatestDecrease)})
+""")
+
+print(text)
+with open(Results_File, "w") as text_file:
+    print(text, file=text_file)
