@@ -8,7 +8,8 @@ Change = 0
 Dates = []
 Profits = []
 
-BudgetCSV = os.path.join("budget_data.csv")
+BudgetCSV = os.path.join("PyBank", "budget_data.csv")
+
 
 with open(BudgetCSV, 'r') as csvfile:
 
